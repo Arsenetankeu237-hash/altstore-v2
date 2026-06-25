@@ -1,0 +1,22 @@
+# ALT STORE ERP v2 — fichiers à ne PAS versionner
+
+# 🔴 CRITIQUE — secrets
+.env
+
+# Cache / logs
+*.log
+error_log
+.phpunit.result.cache
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Uploads utilisateurs (à ne pas committer)
+uploads/*
+!uploads/.gitkeep

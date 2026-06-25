@@ -1,0 +1,28 @@
+# ============================================================
+#  ALT STORE ERP v2 — Protection Apache
+# ============================================================
+
+# Protéger le .env (CRITIQUE — credentials)
+<Files ".env">
+    Require all denied
+</Files>
+
+# Interdire l'accès au dossier config (socle applicatif)
+RedirectMatch 403 ^/config/.*$
+RedirectMatch 403 ^/database/.*$
+RedirectMatch 403 ^/views/.*$
+
+# Empêcher le listing des répertoires
+Options -Indexes
+
+# Forcer UTF-8
+AddDefaultCharset UTF-8
+
+# Cache des assets statiques
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 7 days"
+    ExpiresByType application/javascript "access plus 7 days"
+    ExpiresByType image/png "access plus 30 days"
+    ExpiresByType image/jpeg "access plus 30 days"
+</IfModule>
